@@ -46,6 +46,8 @@ HSCU(33)=handles.ELIMSPK34;
 
 
 HSCU(30)=nci;
+disp('HSCU(30): ');
+disp(HSCU(30));
 switch nci
     case 22  % Manejador del plot curva PSA
        HSCU(31)=11;
@@ -58,7 +60,8 @@ switch nci
        HSCU(32)=5;
     case 92  % manejador del plot curva CO2 HCURVA(92)
        HSCU(31)=14; %HCURVA 6 del handle del co2
-       HSCU(32)=6; %columna 6 del archivo
+       HSCU(32)=51; %array de PCURVAS con el valor de CO2
+       disp('entro en el case 92');
 end
 
 nhcurvas=length(HCURVAS);
@@ -93,13 +96,27 @@ PSCU(3,:)=PCURVAS(HSCU(32),rmin:rmax);
 PSCU(4,:)=PCURVAS(HSCU(32),rmin:rmax);
 PSCU(5,:)=PCURVAS(HSCU(32),rmin:rmax);
 
+disp('rmin: '); disp(rmin);
+disp('rmax: '); disp(rmax);
+%disp('ymin: '); disp(HCURVAS(HSCU(30)-2));
+%disp('ymax: '); disp(HCURVAS(HSCU(30)-1));
+disp('HSCU 30-2: '); disp(HSCU(30)-2);
+disp('HSCU 30-1: '); disp(HSCU(30)-1);
+
 HSCU(1) = figure('Visible','off','Name','VFSCI Eliminar Spikes','Position',[50,200,900,485],'NumberTitle','off','MenuBar','none');
 %HSCU(1) = figure('Visible','off','Name','VFSCI Eliminar Spikes','Position',[50,400,900,285],'NumberTitle','off','MenuBar','none');
 set(HSCU(1),'WindowStyle','normal');
 set(HSCU(1),'Resize','on');
 set(HSCU(1),'ResizeFcn',@ElimSpk_POP0_Rz);
 set(HSCU(1),'CloseRequestFcn',@ElimSpk_POP0_Cl);
-HSCU(2) = axes('Units','Pixels','Position',[40,60,840,420],'Xlim',[rmin rmax],'YLim',[HCURVAS(HSCU(30)-2) HCURVAS(HSCU(30)-1)]);
+
+if nci==92
+   HSCU(2) = axes('Units','Pixels','Position',[40,60,840,420],'Xlim',[rmin rmax],'YLim',[HCURVAS(74) HCURVAS(75)]);
+else
+    HSCU(2) = axes('Units','Pixels','Position',[40,60,840,420],'Xlim',[rmin rmax],'YLim',[HCURVAS(HSCU(30)-2) HCURVAS(HSCU(30)-1)]);
+end
+
+
 % HSCU(2) = axes('Units','Pixels','Position',[50,60,808,178],'Xlim',[rmin rmax],'YLim',[HCURVAS(HSCU(30)-2) HCURVAS(HSCU(30)-1)]);
 HSCU(15) = uicontrol(HSCU(1),'Style','PushButton','Units','Pixels','String','Spline Cub'     ,'Position',[30 10 80 20]  ,'Callback',@ElimSpk_POP0_B1A);
 HSCU(16) = uicontrol(HSCU(1),'Style','PushButton','Units','Pixels','String','Lineal'         ,'Position',[120 10 80 20] ,'Callback',@ElimSpk_POP0_B1B);
@@ -302,6 +319,7 @@ disp('ElimSpk_POP0_Cl...');
   set(HSCU(27),'enable','on');
   set(HSCU(28),'enable','on');
   set(HSCU(29),'enable','on');
+  set(HSCU(33),'enable','on');
   hold(HCURVAS(HSCU(31)),'on');
   HCURVAS(HSCU(30))=plot(HCURVAS(HSCU(31)),PCURVAS(1,:),PCURVAS(HSCU(32),:),'b-');
   hold(HCURVAS(HSCU(31)),'off');  

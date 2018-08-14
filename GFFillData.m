@@ -277,12 +277,13 @@ if IDEBUG; disp('GFFillData...'); end;
               set(handles.CB3,'Value',0);
               HCURVAS(8)=0;    
           end
-          %CO2 flag marcado
+% %           CO2 flag marcado
 %           disp('HCURVAS(13): '); disp(HCURVAS(13));
 %           disp('HCURVAS(14): '); disp(HCURVAS(14)); 
           if HCURVAS(71)==1
               hold(HCURVAS(14),'on');
               HCURVAS(92)=plot(HCURVAS(14),PCURVAS(1,:),PCURVAS(51,:),'b-','visible','off');
+              %disp(PCURVAS(51,:));
               switch ACCION
                   case 6
                       HCURVAS(59)=plot(HCURVAS(14),PCURVAS(1,:),PCURVAS(60,:),'r-','visible','off');

@@ -134,42 +134,45 @@ switch ACCION
               GFView(handles,ACCION,1,'off');
               GFView(handles,ACCION,2,'off');
               GFView(handles,ACCION,3,'off'); 
+              GFView(handles,ACCION,4,'off'); 
               xwin31=cbv1;
               xwin32=cbv2;
-              xwin33=cbv3+cbv4;
+              %xwin33=cbv3+cbv4;
+              xwin33=cbv3;
+              xwin34=cbv4;
               
               nc3=str2double(VCFG(13));
-              if NPOS > 2  && NPOS < 10
-                  if xwin33
-                      HCURVAS(8)=1;
-                  else
-                      HCURVAS(8)=0;
-                  end
-                  if nc3~=NPOS
-                      hold(HCURVAS(13),'on');
-                      lsup=max(PCURVAS(GCV(NPOS,11),:));
-                      linf=min(PCURVAS(GCV(NPOS,11),:));
-                      set(handles.AX33YMX,'string',num2str(lsup))
-                      set(handles.AX33YMN,'string',num2str(linf))
-                      HCURVAS(40)=linf;
-                      HCURVAS(41)=lsup;
-                      hold(HCURVAS(13),'off');
-                      VCFG(13)=cellstr(num2str(NPOS));
-                      set(HCURVAS(13),'XLim',[HCURVAS(18) HCURVAS(19)]); % limites del eje X
-                      set(HCURVAS(13),'YLim',[HCURVAS(40) HCURVAS(41)]); % limites del eje Y
-                      switch NPOS
-                          case 3
-                              ylabel(HCURVAS(13),'VFSCD');
-                          case 4
-                              ylabel(HCURVAS(13),'CO2');
-                              disp('co2 14');
-                          case 5
-                              ylabel(HCURVAS(13),'ECG');
-                          case 6
-                              ylabel(HCURVAS(13),'ADIC');
-                      end
-                  end
-              end
+%               if NPOS > 2  && NPOS < 10
+%                   if xwin33
+%                       HCURVAS(8)=1;
+%                   else
+%                       HCURVAS(8)=0;
+%                   end
+%                   if nc3~=NPOS
+%                       hold(HCURVAS(13),'on');
+%                       lsup=max(PCURVAS(GCV(NPOS,11),:));
+%                       linf=min(PCURVAS(GCV(NPOS,11),:));
+%                       set(handles.AX33YMX,'string',num2str(lsup))
+%                       set(handles.AX33YMN,'string',num2str(linf))
+%                       HCURVAS(40)=linf;
+%                       HCURVAS(41)=lsup;
+%                       hold(HCURVAS(13),'off');
+%                       VCFG(13)=cellstr(num2str(NPOS));
+%                       set(HCURVAS(13),'XLim',[HCURVAS(18) HCURVAS(19)]); % limites del eje X
+%                       set(HCURVAS(13),'YLim',[HCURVAS(40) HCURVAS(41)]); % limites del eje Y
+%                       switch NPOS
+%                           case 3
+%                               ylabel(HCURVAS(13),'VFSCD');
+%                           case 4
+%                               %ylabel(HCURVAS(13),'CO2');
+%                           case 5
+%                               ylabel(HCURVAS(13),'ECG');
+%                           case 6
+%                               ylabel(HCURVAS(13),'ADIC');
+%                       end
+%                   end
+%               end
+              
 
           
               nc1=str2double(VCFG(11));
@@ -253,6 +256,9 @@ switch ACCION
               end
               if xwin33
                   GFView(handles,ACCION,3,'on');
+              end
+              if xwin34
+                  GFView(handles,ACCION,4,'on');
               end
           if ACCION == 5
               set(handles.MINMAX,'Visible','on');

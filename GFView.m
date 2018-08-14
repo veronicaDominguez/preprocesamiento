@@ -79,7 +79,7 @@ switch ACCION
         set(handles.CBV33_3,'Value',1);         % filtro - ver señal f but v3
         set(handles.CBV33_4,'Value',1);
         
-        ver_ven_gen(handles,4,'off');
+        %ver_ven_gen(handles,4,'off');
         ver_bot_fil(handles,4,'off')
         set(handles.CBMED34,'Value',0);         % filtro - aplic fil med v3
         set(handles.CBBUT34,'Value',0);         % filtro - aplic fil but v3
@@ -194,7 +194,7 @@ switch nven
             set(handles.AX31,'XLim',[HCURVAS(18) HCURVAS(19)]); % limites del eje X
         end
     case 2
-        %Para ver la ventana 4 VFSCI
+        %Para ver la ventana 2 VFSCI
         set(handles.AX32,'Visible'   ,modo);   % ventana2 -
         set(handles.AX32YMX,'Visible',modo);   % ventana2 -
         set(handles.AX32YMN,'Visible',modo);   % ventana2 -
@@ -219,9 +219,11 @@ switch nven
         set(handles.AX34YMN,'Visible',modo);   % ventana4 -
         if strcmp(modo,'on')
             set(handles.AX34,'XLim',[HCURVAS(18) HCURVAS(19)]); % limites del eje X
+            set(HCURVAS(92),'Visible','on');
         end
         if strcmp(modo,'off')
             set(handles.AX34,'Visible',modo);
+            set(HCURVAS(92),'Visible','off');
         end
     case 10
         set(handles.CBTFC1A,'Visible',modo);   % ventana1 -
@@ -246,86 +248,26 @@ set(handles.PanelCO2MMU,'Visible','off');
 switch nven
     case 1
         set(handles.PanelPSAFiltro,'Visible',modo); % filtro - panel PSA Filtro
-        
-%         set(handles.ELIMSPK31,'Visible',modo); % filtro - boton elim spike v1
-%         set(handles.CBMED31  ,'Visible',modo);  % filtro - texto apl fil med v1
-%         set(handles.OFMED31  ,'Visible',modo);  % filtro - grad fil med v1
-%         set(handles.CBBUT31  ,'Visible',modo);  % filtro - texto apl fil but v1
-%         set(handles.OFBUT31  ,'Visible',modo);  % filtro - grad fil but v1
-%         set(handles.TE1BUT31 ,'Visible',modo); % filtro - texto FC fil but v1
-%         set(handles.FCFBUT31 ,'Visible',modo); % filtro - FC fil but v1
-%         set(handles.CBV31_1  ,'Visible',modo);   % filtro - ver señal orig v1
-%         set(handles.CBV31_2  ,'Visible',modo);   % filtro - ver señal f med v1
-%         set(handles.CBV31_3  ,'Visible',modo);   % filtro - ver señal f but v1
-%         set(handles.CBV31_4  ,'Visible',modo);   % filtro - ver señal f but v1
-%         
-%         set(handles.CBSPL31  ,'Visible',modo); % filtro - texto apl fil but v1
-%         set(handles.FNSPL31  ,'Visible',modo); % filtro - grad fil but v1
-        %set(handles.TE1SPL31 ,'Visible',modo); % filtro - texto FC fil but v1
     case 2
         set(handles.PanelVFSCIFiltro,'Visible',modo); % filtro - panel VFSC I Filtro
-        
-        set(handles.ELIMSPK32,'Visible',modo); % filtro - boton elim spike v2
-        set(handles.CBMED32  ,'Visible',modo); % filtro - texto apl fil med v2
-        set(handles.OFMED32  ,'Visible',modo); % filtro - grad fil med v2
-        set(handles.CBBUT32  ,'Visible',modo); % filtro - texto apl fil but v2
-        set(handles.OFBUT32  ,'Visible',modo); % filtro - grad fil but v2
-        set(handles.TE1BUT32 ,'Visible',modo); % filtro - texto FC fil but v2
-        set(handles.FCFBUT32 ,'Visible',modo); % filtro - FC fil but v2
-        set(handles.CBV32_1  ,'Visible',modo); % filtro - ver señal orig v2
-        set(handles.CBV32_2  ,'Visible',modo); % filtro - ver señal f med v2
-        set(handles.CBV32_3  ,'Visible',modo); % filtro - ver señal f but v2
-        set(handles.CBV32_4  ,'Visible',modo); % filtro - ver señal f but v2
-        
-        set(handles.CBSPL32  ,'Visible',modo); % filtro - texto apl fil but v1
-        set(handles.FNSPL32  ,'Visible',modo); % filtro - grad fil but v1
-        set(handles.TE1SPL32 ,'Visible',modo); % filtro - texto FC fil but v1
     case 3
 %         nc=str2double(VCFG(13));
 %         if nc ~= 3
 %             modo='off';
 %         end
         if get(handles.CB3,'Value')==1
+            set(handles.PanelCO2Filtro,'Visible','off'); % filtro - panel CO2 Filtro
+            set(handles.CB4,'Value',0); % filtro - panel CO2 Filtro
+            set(handles.AX34,'Visible','off'); % filtro - panel CO2 Filtro
+            
             set(handles.PanelVFSCDFiltro,'Visible','on'); % filtro - panel VFSC D Filtro
-        
-            set(handles.ELIMSPK33,'Visible',modo); % filtro - boton elim spike v3
-            set(handles.CBMED33  ,'Visible',modo);   % filtro - texto apl fil med v3
-            set(handles.OFMED33  ,'Visible',modo);   % filtro - grad fil med v3
-            set(handles.CBBUT33  ,'Visible',modo);   % filtro - texto apl fil but v3
-            set(handles.OFBUT33  ,'Visible',modo);   % filtro - grad fil but v3
-            set(handles.TE1BUT33 ,'Visible',modo);  % filtro - texto FC fil but v3
-            set(handles.FCFBUT33 ,'Visible',modo);  % filtro - FC fil but v3
-            set(handles.CBV33_1  ,'Visible',modo);   % filtro - ver señal orig v3
-            set(handles.CBV33_2  ,'Visible',modo);   % filtro - ver señal f med v3
-            set(handles.CBV33_3  ,'Visible',modo);   % filtro - ver señal f but v3
-            set(handles.CBV33_4  ,'Visible',modo);   % filtro - ver señal f but v3
-
-            set(handles.CBSPL33  ,'Visible',modo); % filtro - texto apl fil but v1
-            set(handles.FNSPL33  ,'Visible',modo); % filtro - grad fil but v1
-            set(handles.TE1SPL33 ,'Visible',modo); % filtro - texto FC fil but v1
         end
         if get(handles.CB3,'Value')==0
             set(handles.PanelVFSCDFiltro,'Visible','off'); % filtro - panel VFSC D Filtro
         end
     case 4
-        if get(handles.CB4,'Value')==1    
+        if get(handles.CB4,'Value')==1 
             set(handles.PanelCO2Filtro,'Visible','on'); % filtro - panel CO2 Filtro
-
-            set(handles.ELIMSPK34,'Visible',modo); % filtro - boton elim spike v4
-            set(handles.CBMED34  ,'Visible',modo);   % filtro - texto apl fil med v4
-            set(handles.OFMED34  ,'Visible',modo);   % filtro - grad fil med v4
-            set(handles.CBBUT34  ,'Visible',modo);   % filtro - texto apl fil but v4
-            set(handles.OFBUT34  ,'Visible',modo);   % filtro - grad fil but v4
-            %set(handles.TE1BUT34 ,'Visible',modo);  % filtro - texto FC fil but v4
-            set(handles.FCFBUT34 ,'Visible',modo);  % filtro - FC fil but v4
-            set(handles.CBV34_1  ,'Visible',modo);   % filtro - ver señal orig v4
-            set(handles.CBV34_2  ,'Visible',modo);   % filtro - ver señal f med v4
-            set(handles.CBV34_3  ,'Visible',modo);   % filtro - ver señal f but v4
-            set(handles.CBV34_4  ,'Visible',modo);   % filtro - ver señal f but v4
-
-            set(handles.CBSPL34  ,'Visible',modo); % filtro - texto apl fil but v4
-            set(handles.FNSPL34  ,'Visible',modo); % filtro - grad fil but v4
-            set(handles.TE1SPL34 ,'Visible',modo); % filtro - texto FC fil but v4
         end
         if get(handles.CB4,'Value')==0
             set(handles.PanelVFSCDFiltro,'Visible','off'); % filtro - panel VFSC D Filtro

@@ -35,9 +35,11 @@ switch NFIL
                     Fmed(w,13,handles.CBMED33,handles.OFMED33,handles.CBSPL33,handles.CBBUT33,handles.CB3,handles.CBV33_2);
                 end 
             case 4
-                if HCURVAS(4) % verifica curvas en ventana 4
+                if HCURVAS(71) % verifica curvas en ventana 4
                     w=str2double(char(VCFG(14)));  % nro de curva en la ventana 1
+                    %disp('w:');disp(w);
                     Fmed(w,14,handles.CBMED34,handles.OFMED34,handles.CBSPL34,handles.CBBUT34,handles.CB4,handles.CBV34_2);
+                    
                 end 
         end
     case 2  % Filtro Butter
@@ -116,6 +118,7 @@ function Fmed(nc,xw,h1,h2,h3,h4,h5,h6)
 % h4   puntero a checbox indicación de filtro butter
 % h5   puntero a checbox indicación ventana activa
 % h6   puntero a checbox indicación mostrar curva en ventana
+%Fmed(w,14,handles.CBMED34,handles.OFMED34,handles.CBSPL34,handles.CBBUT34,handles.CB4,handles.CBV34_2);
 global HCURVAS;
 global PCURVAS;
 global GCV;

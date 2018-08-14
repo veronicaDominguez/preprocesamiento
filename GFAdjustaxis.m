@@ -91,7 +91,10 @@ if HCURVAS(1)+HCURVAS(2)+HCURVAS(3) > 0
                 end
             end
             % Ajustar Curva D en ventana 4 CO2
+%             disp('antes de la curva CO2, HCURVAS 71'); disp(HCURVAS(71));
+%             disp('antes de la curva CO2, HCURVAS 71'); disp(HCURVAS(9));
             if HCURVAS(71) && HCURVAS(9)==1
+%                 disp('entrando a la curva CO2');
                 set(HCURVAS(14),'XLim',[HCURVAS(18) HCURVAS(19)]); % limites del eje X
                 set(HCURVAS(14),'YLim',[HCURVAS(74) HCURVAS(75)]); % limites del eje Y
                 if redraw==1; set(HCURVAS(92),'Marker',marca); end;
