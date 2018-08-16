@@ -100,7 +100,7 @@ function [HCURVAS VCFG GCV]=GFInicializa(handles)
   GCV(1,13)=10;  % datos señal filtro butter PSA - PCURVAS
   GCV(2,13)=11;
   GCV(3,13)=12;
-  GCV(4,13)=57;
+  GCV(4,13)=61;
   GCV(5,13)=58;
   GCV(6,13)=59;
   

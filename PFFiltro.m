@@ -36,8 +36,9 @@ switch NFIL
                 end 
             case 4
                 if HCURVAS(71) % verifica curvas en ventana 4
-                    w=str2double(char(VCFG(14)));  % nro de curva en la ventana 1
+                    %w=str2double(char(VCFG(14)));  % nro de curva en la ventana 1
                     %disp('w:');disp(w);
+                    w=4;
                     Fmed(w,14,handles.CBMED34,handles.OFMED34,handles.CBSPL34,handles.CBBUT34,handles.CB4,handles.CBV34_2);
                     
                 end 
@@ -68,7 +69,13 @@ switch NFIL
                 if HCURVAS(3)
                     w=str2double(char(VCFG(13)));  % nro de curva en la ventana 3
                     Fbut(w,13,T,handles.CBBUT33,handles.OFBUT33,handles.FCFBUT33,handles.CBMED33,handles.CBSPL33,handles.CB3,handles.CBV33_3);
-                end 
+                end
+            case 4
+                if HCURVAS(71)
+                    %w=str2double(char(VCFG(14)));  % nro de curva en la ventana 1
+                    w=4
+                    Fbut(w,14,T,handles.CBBUT34,handles.OFBUT34,handles.FCFBUT34,handles.CBMED34,handles.CBSPL34,handles.CB4,handles.CBV34_3);
+                end
         end
     case 3    % Filtro Spline autom
         switch NVEN
@@ -238,14 +245,23 @@ w=xw-10;
         BUFAUX = GFInvertir(BUFAUX);
         BUFAUX = filter(bw,aw,BUFAUX);
         BUFAUX = GFInvertir(BUFAUX);
-        PCURVAS(GCV(nc,13),:)=BUFAUX(21:xlen+20);
+        %PCURVAS(GCV(nc,13),:)=BUFAUX(21:xlen+20);
+        %hold(HCURVAS(xw),'on');
+        if nc==4
+            PCURVAS(61,:)=BUFAUX(21:xlen+20);
+        else
+            PCURVAS(GCV(nc,13),:)=BUFAUX(21:xlen+20);
+        end
         hold(HCURVAS(xw),'on');
+        
         if get(h6,'Value') && get(h7,'Value')
             HCURVAS(GCV(nc,5))=plot(HCURVAS(xw),PCURVAS(1,:),PCURVAS(GCV(nc,13),:),'r-','visible','on');
         else
             HCURVAS(GCV(nc,5))=plot(HCURVAS(xw),PCURVAS(1,:),PCURVAS(GCV(nc,13),:),'r-','visible','off');
         end
+        
         hold(HCURVAS(xw),'off');
+        
         HCURVAS(w)=bitor(HCURVAS(w),8);
     else
         str1=strcat('PCURVAS(',num2str(GCV(nc,13)),')');
