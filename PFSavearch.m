@@ -36,6 +36,12 @@ ok_save=1;
           ok_save=0;
       end
   end
+  if HCURVAS(4) && ok_save
+      if get(handles.CBBUT34,'value')==0
+          errordlg('CO2 sin Filtro Butter','Guardar Archivo Filtrado');
+          ok_save=0;
+      end
+  end
   if ok_save      % condiciones para guardar archivo se cumple
       TFileName=char(HEADLIN(21,1));
       lnf=length(TFileName);

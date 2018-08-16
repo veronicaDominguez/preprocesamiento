@@ -94,6 +94,12 @@ switch NFIL
                     w=str2double(char(VCFG(13)));
                     Fspl(w,13,handles.CBSPL33,handles.FNSPL33,handles.CBBUT33,handles.CBMED33,handles.CB3,handles.CBV33_4);
                 end
+            case 4
+                if HCURVAS(71)
+                    %w=str2double(char(VCFG(11)));
+                    w=4
+                    Fspl(w,14,handles.CBSPL34,handles.FNSPL34,handles.CBBUT34,handles.CBMED34,handles.CB4,handles.CBV34_4);
+                end
         end
 end
 if IDEBUG; disp('...PFFiltro'); end;
