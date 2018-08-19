@@ -19,6 +19,7 @@ function [HCURVAS VCFG GCV]=GFInicializa(handles)
   HCURVAS(12)=handles.AX32;
   HCURVAS(13)=handles.AX33;
   HCURVAS(14)=handles.AX34;
+  HCURVAS(15)=handles.AX35;
   
   VCFG(1)=cellstr('b-');
   VCFG(2)=cellstr('r-');
@@ -31,6 +32,7 @@ function [HCURVAS VCFG GCV]=GFInicializa(handles)
   VCFG(12)=cellstr('0');
   VCFG(13)=cellstr('0');
   VCFG(14)=cellstr('0');
+  VCFG(15)=cellstr('0');
   
   GCV=zeros(6,60);
   

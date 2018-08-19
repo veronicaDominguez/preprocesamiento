@@ -13,7 +13,7 @@ global IDEBUG;
 if IDEBUG; disp('CFSetejes...'); end;
 inic=0;
 fini=0;
-if HCURVAS(1)+HCURVAS(2)+HCURVAS(3) > 0
+if HCURVAS(1)+HCURVAS(2)+HCURVAS(3)+HCURVAS(71) > 0
   switch modo
       case 1
          % escribe solo las horas 
@@ -95,18 +95,18 @@ if HCURVAS(1)+HCURVAS(2)+HCURVAS(3) > 0
   % Verifica si se movió hora de inicio y ajusta los datos
   if inic == 1
      set(handles.CF_EDMHINICIO,'String',LTIME(HCURVAS(62)) );
-     hold(HCURVAS(11),'on');
+     hold(HCURVAS(15),'on');
      delete(HCURVAS(60));
-     HCURVAS(60)=plot(HCURVAS(11),[HCURVAS(62) HCURVAS(62)],[HCURVAS(20) HCURVAS(21)],'y-');
-     hold(HCURVAS(11),'off');
+     HCURVAS(60)=plot(HCURVAS(15),[HCURVAS(62) HCURVAS(62)],[HCURVAS(20) HCURVAS(21)],'y-');
+     hold(HCURVAS(15),'off');
   end
   % Verifica si se movió hora final y ajusta los datos
   if fini == 1
      set(handles.CF_EDMHFINAL,'String',LTIME(HCURVAS(63)) );
-     hold(HCURVAS(11),'on');
+     hold(HCURVAS(15),'on');
      delete(HCURVAS(61));
-     HCURVAS(61)=plot(HCURVAS(11),[HCURVAS(63) HCURVAS(63)],[HCURVAS(20) HCURVAS(21)],'y-');
-     hold(HCURVAS(11),'off');
+     HCURVAS(61)=plot(HCURVAS(15),[HCURVAS(63) HCURVAS(63)],[HCURVAS(20) HCURVAS(21)],'y-');
+     hold(HCURVAS(15),'off');
   end
 end
 if IDEBUG; disp('...CFSetejes');  end;

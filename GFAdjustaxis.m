@@ -37,21 +37,25 @@ if HCURVAS(1)+HCURVAS(2)+HCURVAS(3) > 0
     end
     % verifica si hay que destacar los puntos
     if (HCURVAS(19)-HCURVAS(18)) >= 30
-        if MON==1; redraw=1; MON=0; marca='none'; end;
+        disp('dentro del if');
+        if MON==1; disp('dentro del if mon 1'); redraw=1; MON=0; marca='none'; end;
     else
         if MON==0; redraw=1; MON=1; marca='s'; end;
     end
+    disp('valor de redraw'); disp(redraw);
     HCURVAS(50)=MON;
     set(handles.HORAIAX31,'String',LTIME(HCURVAS(18)) );
     set(handles.HORAFAX31,'String',LTIME(HCURVAS(19)) );
     switch ACCION
         case 4 % Ajustar Curva A,B,C en ventana 1
-            if HCURVAS(1) && HCURVAS(6)==1
-                set(HCURVAS(11),'XLim',[HCURVAS(18) HCURVAS(19)]); % limites del eje X
-                set(HCURVAS(11),'YLim',[HCURVAS(20) HCURVAS(21)]); % limites del eje Y        
+            %if HCURVAS(1) && HCURVAS(6) ==1            
+            if HCURVAS(1)|| HCURVAS(2)|| HCURVAS(3) || HCURVAS(71) && HCURVAS(10) ==1
+                set(handles.AX35,'XLim',[HCURVAS(18) HCURVAS(19)]); % limites del eje X
+                set(handles.AX35,'YLim',[HCURVAS(20) HCURVAS(21)]); % limites del eje Y
                 if redraw==1
                     for w=1:6
                         if HCURVAS(GCV(w,1))
+                            disp('tratando de dibujar curvas');
                             set(HCURVAS(GCV(w,2)),'Marker',marca);
                         end
                     end

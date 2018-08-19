@@ -8,13 +8,13 @@
 % HCURVAS(7)= FLAG  ventana 2; 1=visible 0=invisible
 % HCURVAS(8)= FLAG  ventana 3; 1=visible 0=invisible
 % HCURVAS(9)= FLAG  ventana 4; 1=visible 0=invisible
-% HCURVAS(10)= 
+% HCURVAS(10)= FLAG  ventana 5; 1=visible 0=invisible
 
 % HCURVAS(11)= handles ventana AX31
 % HCURVAS(12)= handles ventana AX32
 % HCURVAS(13)= handles ventana AX33
 % HCURVAS(14)= handles ventana AX34
-% HCURVAS(15)= 
+% HCURVAS(15)= handles ventana AX35
 
 % HCURVAS(16)= Limite minimo global en eje X
 % HCURVAS(17)= Limite maximo global en eje X
@@ -51,7 +51,7 @@
 % HCURVAS(36)= Manejador Spline automatico VFSCD
 
 
-% HCURVAS(50)= FLAG Mostrar Marcas en curvas; 1=Mortar 0=No Mostrar
+% HCURVAS(50)= FLAG Mostrar Marcas en curvas; 1=Mostrar 0=No Mostrar
 % HCURVAS(60)= Handle linea Izquierda para cortar Curvas
 % HCURVAS(61)= Handle linea Derecha para cortar Curvas
 % HCURVAS(62)= Posiciòn Curva Izquierda para corte

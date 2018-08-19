@@ -18,10 +18,6 @@ global IDEBUG;
 if IDEBUG; disp('GFView...'); end;
 
 set(handles.PanelSujeto,'Visible', 'on');
-%set(handles.GF_EDFNAME,'Position',[134 675 329 18]);
-%set(handles.GF_EDSNAME,'Position',[604 675 162 18]);
-%set(handles.GF_EDFMUES,'Position',[604 655 162 18]);
-%set(handles.GF_EDTMUES,'Position',[862 655  41 18]);
 
 switch ACCION
     case 0  % inicializar ventana ocultando elementos
@@ -38,16 +34,7 @@ switch ACCION
         set(handles.PanelCutSignal,'Visible','off');
         set(handles.PanelPCCRAP,'Visible','off');
         
-        %set(handles.SLH1,'Visible','off');      % barra de desplazamiento
-        %set(handles.HORAIAX31,'Visible','off'); % hora de inicio ventana
-        %set(handles.HORAFAX31,'Visible','off'); % hora de termino ventana
-        
-        %ver_bot_cut(handles,'off');
-
-        %set(handles.CB1,'Visible','off');       % visible/invisible PSA
-        %set(handles.CB2,'Visible','off');       % visible/invisible VFSCI
-        %set(handles.CB3,'Visible','off');       % visible/invisible VFSCD
-        %set(handles.CB4,'Visible','off');       % visible/invisible CO2
+        ver_bot_cut(handles,'off');
     
         ver_ven_gen(handles,1,'off');
         ver_bot_fil(handles,1,'off');
@@ -102,15 +89,8 @@ switch ACCION
         ver_bot_mm(handles,4,'off');
         
         ver_bot_proc1(handles,0,'off');
-    case 4
-              
-        %set(handles.AX31YMN,'Position',[887 326 51 20]);
-        %set(handles.AX31YMX,'Position',[887 606 51 20]);
-        %set(handles.HORAIAX31,'Position',[79 285 72 20]);
-        %set(handles.HORAFAX31,'Position',[816 285 72 20]);
-        set(handles.HORAIAX31,'Visible','on');
-        set(handles.HORAFAX31,'Visible','on');
-        %set(handles.AX31,'Position',[79 326 808 300]);  % 1 ventana, ventana superior extendida
+    case 4  
+                
         ver_bot_cut(handles,'on');
         ver_ven_gen(handles,1,MODO);
     otherwise
@@ -281,18 +261,15 @@ end
 function ver_bot_cut(handles,modo)
 % handles    estructura con punteros a datos de la GUI
 % modo       on = visualizar ; off = ocultar 
-    set(handles.CF_PBBMINICIO,'Position',[ 79 260 20 20]);
-    set(handles.CF_PBMINICIO ,'Position',[100 260 95 20]);
-    set(handles.CF_PBFMINICIO,'Position',[195 260 20 20]);
-    set(handles.CF_EDMHINICIO,'Position',[218 260 72 20]);
-    
-    set(handles.CF_PBBMFINAL ,'Position',[ 79 230 20 20]);
-    set(handles.CF_PBMFINAL  ,'Position',[100 230 95 20]);
-    set(handles.CF_PBFMFINAL ,'Position',[195 230 20 20]);
-    set(handles.CF_EDMHFINAL ,'Position',[218 230 72 20]);
-    
-    set(handles.CF_PBWRTSEL  ,'Position',[ 79 200 110 25]);
-    set(handles.CF_PBEND     ,'Position',[ 79 174 110 25]);
+    set(handles.PanelCutSignal,'Visible',modo);
+    set(handles.PanelData,'Visible',modo);
+    %panel datos
+        set(handles.CB1,'Visible','on');
+        set(handles.CB2,'Visible','on');
+        set(handles.CB3,'Visible','on');
+        set(handles.CB4,'Visible','on'); 
+        
+    set(handles.AX35,'Visible',modo); 
     
     set(handles.CF_PBMINICIO ,'Visible',modo);
     set(handles.CF_PBMFINAL  ,'Visible',modo);

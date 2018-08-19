@@ -62,7 +62,6 @@ if IDEBUG; disp('GFFillData...'); end;
   PCURVAS(GCV(5,11),:)=ECG;   % Electrocardiograma
   PCURVAS(GCV(6,11),:)=ADIC;  % Adicional
   
-  disp('Valor de GCV: '); disp(GCV(1,20));
   switch ACCION
       case 6
           if FILEX
@@ -93,7 +92,6 @@ if IDEBUG; disp('GFFillData...'); end;
                   c3=floor(MMUP(i)/16);
                   c2=floor((MMUP(i)-c3*16)/4);
                   c1=floor(MMUP(i)-c3*16-c2*4);
-                  disp('Valor de c3: '); disp(c3);
                   switch c1
                       %valores y posiciciones de PSA
                       case 1
@@ -190,29 +188,26 @@ if IDEBUG; disp('GFFillData...'); end;
   
   HAYCUR=(HCURVAS(GCV(1,1))+HCURVAS(GCV(2,1))+HCURVAS(GCV(3,1))+HCURVAS(71)+HCURVAS(GCV(5,1))+HCURVAS(GCV(6,1))) ~= 0;
 
-  disp('GCV 3,5 : '); disp(GCV(3,5));
-  %disp('GCV2222: '); disp(GCV(1,2)); disp(GCV(1,11));
-  
   switch ACCION
       case 4
           if HAYCUR
               HCURVAS(20)=str2double(get(handles.AX31YMN,'string')); % Limite inferior eje Y curva 1
               HCURVAS(21)=str2double(get(handles.AX31YMX,'string')); % Limite superior eje Y curva 1
               HCURVAS(50)=0;          
-              hold(HCURVAS(11),'on');
+              hold(HCURVAS(15),'on');
               for l=1:6
                   if HCURVAS(GCV(l,1))==1
-                      HCURVAS(GCV(l,2))=plot(HCURVAS(11),PCURVAS(1,:),PCURVAS(GCV(l,11),:),char(VCFG(l)),'visible','off');
-                      HCURVAS(6)=1;
+                      HCURVAS(GCV(l,2))=plot(HCURVAS(15),PCURVAS(1,:),PCURVAS(GCV(l,11),:),char(VCFG(l)),'visible','off');
+                      HCURVAS(10)=1;
                   end
               end
-              disp('GCV L: '); disp(GCV(1,2));
-              HCURVAS(60)=plot(HCURVAS(11),[PCURVAS(1,HCURVAS(16)) PCURVAS(1,HCURVAS(16))],[HCURVAS(20) HCURVAS(21)],'y-','visible','off');
-              HCURVAS(61)=plot(HCURVAS(11),[PCURVAS(1,HCURVAS(17)) PCURVAS(1,HCURVAS(17))],[HCURVAS(20) HCURVAS(21)],'y-','visible','off');
-              VCFG(11)=cellstr('1');
+              
+              HCURVAS(60)=plot(HCURVAS(15),[PCURVAS(1,HCURVAS(16)) PCURVAS(1,HCURVAS(16))],[HCURVAS(20) HCURVAS(21)],'y-','visible','off');
+              HCURVAS(61)=plot(HCURVAS(15),[PCURVAS(1,HCURVAS(17)) PCURVAS(1,HCURVAS(17))],[HCURVAS(20) HCURVAS(21)],'y-','visible','off');
+              VCFG(15)=cellstr('1');
           else
               HCURVAS(6)=0;
-              VCFG(11)=cellstr('0');
+              VCFG(15)=cellstr('0');
           end
       otherwise
           HCURVAS(20)=str2double(get(handles.AX31YMN,'string')); % Limite inferior eje Y curva 1

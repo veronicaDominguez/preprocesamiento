@@ -26,6 +26,7 @@ function CFLoadarch(handles)
       if HAYCUR
           % Ajuste de Menu, ajuste y visualización de ejes
           GFEnmenu(0);
+          %HCURVAS(50)=1;
           GFAdjustaxis(handles,ACCION,LTIME);
           CFSetejes(handles,1);
           GFVeraxis(handles,0);
