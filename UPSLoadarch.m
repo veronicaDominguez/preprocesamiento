@@ -6,7 +6,7 @@ function UPSLoadarch(handles)
   global HEADLIN;
   global DIR_TRAB;
   disp('UPSLoadarch...');
-  GFView(handles,0);
+  GFView(handles,5);
   GFClean();
   [FileName Path]=uigetfile({'*.FIL;*.fil'}, 'Archivo a Procesar',DIR_TRAB);
   if (FileName ~=0)

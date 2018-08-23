@@ -50,4 +50,6 @@ nmet=get(handles.RB1,'Value')+get(handles.RB2,'Value')*2+get(handles.RB3,'Value'
           end
       end
   end
+set(handles.PanelSignal,'Visible','on');
+set(handles.PanelData,'Visible','off');  
 end

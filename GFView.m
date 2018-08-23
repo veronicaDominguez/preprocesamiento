@@ -88,11 +88,16 @@ switch ACCION
         ver_bot_mm(handles,3,'off');
         ver_bot_mm(handles,4,'off');
         
+        set(handles.PanelCO2Filtro,'Visible','off');
         ver_bot_proc1(handles,0,'off');
     case 4  
                 
         ver_bot_cut(handles,'on');
         ver_ven_gen(handles,1,MODO);
+        
+    case 5
+        set(handles.PanelCalcMMU,'Visible','on');        
+        set(handles.PanelCO2Filtro,'Visible','off');
     otherwise
         
         %Paneles
@@ -117,7 +122,6 @@ switch ACCION
             case 1
                 ver_bot_fil(handles,NVEN,MODO)
             case 5.1
-                set(handles.UPSTRK,'Visible',MODO);
                 ver_bot_mm(handles,NVEN,MODO)
             case 7
                 ver_bot_proc1(handles,1,MODO);
@@ -293,18 +297,21 @@ function ver_bot_mm(handles,nven,modo)
 % modo       on = visualizar ; off = ocultar 
 switch nven
     case 1
+        set(handles.PanelPSAMMU,'Visible',modo);
         set(handles.PBADM31MA,'Visible',modo); % Upstrk - Bot marcar pto V1
         set(handles.PBADM31ME,'Visible',modo); % Upstrk - Bot elim pto V1
         set(handles.PBADM31MO,'Visible',modo); % Upstrk - Bot aceptar V1
         set(handles.TXADM31MA,'Visible',modo); % Upstrk - Caja nro latidos V1
         set(handles.TXTADM31MA,'Visible',modo); % Upstrk - Caja nro latidos V1
     case 2
+        set(handles.PanelVFSCDMMU,'Visible',modo);
         set(handles.PBADM32MA,'Visible',modo); % Upstrk - Bot marcar pto V2
         set(handles.PBADM32ME,'Visible',modo); % Upstrk - Bot elim pto V2
         set(handles.PBADM32MO,'Visible',modo); % Upstrk - Bot aceptar V2
         set(handles.TXADM32MA,'Visible',modo); % Upstrk - Caja nro latidos V2
         set(handles.TXTADM32MA,'Visible',modo); % Upstrk - Caja nro latidos V2
     case 3
+        set(handles.PanelVFSCIMMU,'Visible',modo);
         set(handles.PBADM33MA,'Visible',modo); % Upstrk - Bot marcar pto V3
         set(handles.PBADM33ME,'Visible',modo); % Upstrk - Bot elim pto V3
         set(handles.PBADM33MO,'Visible',modo); % Upstrk - Bot aceptar V3
