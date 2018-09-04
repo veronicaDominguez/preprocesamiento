@@ -14,6 +14,22 @@ function CPRemuestreo(modo,NPOS)
           case 1
               if IDEBUG; disp('Valores medios...'); end;
               NMETODO=0;
+              j=1;
+              if HCURVAS(GCV(j,1))
+                  L=PCURVAS(GCV(j,15),1)+1;
+                  [p3 v3]=CPMediaXL(PCURVAS(51,:),PCURVAS(GCV(j,21),2:L));  % posicion de latidos solo con respecto a PSA
+                  n=length(PCURVA2(4,:));
+                  n2=length(p3);
+                  PCURVA2(4,:)=[n2 p3 PCURVA2(4,1:(n-n2-1))];  % posiciones  de valores medios
+                  PCURVA2(10,:)=[n2 v3 PCURVA2(10,1:(n-n2-1))];  % valores medios
+
+                  hold(HCURVAS(14),'on');
+                  HCURVA2(4)=plot(HCURVAS(14),PCURVA2(4,2:PCURVA2(4,1)+1),PCURVA2(10,2:PCURVA2(10,1)+1),'ko','visible','on');
+                  hold(HCURVAS(14),'off');
+                  disp(v3);
+              end
+              
+              
               for j=1:3
                   if HCURVAS(GCV(j,1))
                       l=PCURVAS(GCV(j,15),1)+1;

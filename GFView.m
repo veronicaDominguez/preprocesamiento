@@ -321,16 +321,13 @@ end
 end
 
 % --------------------------------------------------------------------
-% -- Oculta o visualiza botones en modo cortar curvas               --
+% -- Oculta o visualiza botones en modo PAR              --
 % --------------------------------------------------------------------
 function ver_bot_proc1(handles,nm,modo)
 % handles    estructura con punteros a datos de la GUI
 % nm         numero de procedimiento en ejecucion
 % modo       on = visualizar ; off = ocultar 
-    set(handles.CP_CBVMED  ,'Position',[ 960 540 115 20]);
-    set(handles.CP_CBPCC1RAP1,'Position',[ 960 520 115 20]);
-    set(handles.CP_CBREMUES    ,'Position',[ 960 500 115 20]);
-    set(handles.CP_EDVREMUES ,'Position',[1070 500  40 20]);
+    set(handles.PanelPCCRAP,'Visible',modo);    
     set(handles.CP_CBREMUES ,'Visible',modo);
     set(handles.CP_CBPCC1RAP1 ,'Visible',modo);
     set(handles.CP_CBVMED   ,'Visible',modo);

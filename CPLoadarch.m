@@ -32,6 +32,7 @@ function CPLoadarch(handles)
 
           PCURVA2=zeros(30,length(PCURVAS(1,:)));
           HCURVA2=zeros(30);
+          
 
       else
           warndlg('No existen datos para la curva','Mensaje de Archivo');
