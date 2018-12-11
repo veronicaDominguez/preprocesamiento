@@ -15,21 +15,22 @@ function CPRemuestreo(modo,NPOS)
               if IDEBUG; disp('Valores medios...'); end;
               NMETODO=0;
               j=1;
+              %valores medios para CO2
               if HCURVAS(GCV(j,1))
                   L=PCURVAS(GCV(j,15),1)+1;
                   [p3 v3]=CPMediaXL(PCURVAS(51,:),PCURVAS(GCV(j,21),2:L));  % posicion de latidos solo con respecto a PSA
                   n=length(PCURVA2(4,:));
                   n2=length(p3);
-                  PCURVA2(4,:)=[n2 p3 PCURVA2(4,1:(n-n2-1))];  % posiciones  de valores medios
-                  PCURVA2(10,:)=[n2 v3 PCURVA2(10,1:(n-n2-1))];  % valores medios
+                  PCURVA2(GCV(4,40),:)=[n2 p3 PCURVA2(4,1:(n-n2-1))];  % posiciones  de valores medios GCV(4,40)=4
+                  PCURVA2(GCV(4,41),:)=[n2 v3 PCURVA2(10,1:(n-n2-1))];  % valores medios GCV(4,41)=10
 
                   hold(HCURVAS(14),'on');
                   HCURVA2(4)=plot(HCURVAS(14),PCURVA2(4,2:PCURVA2(4,1)+1),PCURVA2(10,2:PCURVA2(10,1)+1),'ko','visible','on');
                   hold(HCURVAS(14),'off');
-                  disp(v3);
+                  %disp(v3);
               end
               
-              
+              %valores medios para PSA VFSCI VFSCD
               for j=1:3
                   if HCURVAS(GCV(j,1))
                       l=PCURVAS(GCV(j,15),1)+1;
@@ -62,9 +63,10 @@ function CPRemuestreo(modo,NPOS)
                   nfrec=1/frec;
                   lrfrec=str2double(get(MHANDLE.CP_EDVREMUES,'String'));
                   rfrec=1/lrfrec;
-                  for j=1:3
+                  for j=1:4
                       if HCURVAS(GCV(j,1))
                           [p1 v1]=Remuestreo(rfrec,nfrec,PCURVA2(GCV(j,40),2:(PCURVA2(GCV(j,40),1)+1)),PCURVA2(GCV(j,41),2:(PCURVA2(GCV(j,41),1)+1)),PCURVAS(GCV(j,11),:),PCURVAS(GCV(j,21),2:PCURVAS(GCV(j,21),1)+1));
+                          
                           n=length(PCURVA2(GCV(j,42),:));
                           n2=length(p1);
                           PCURVA2(GCV(j,42),:)=[n2 p1 PCURVA2(GCV(j,42),1:(n-n2-1))];  % posiciones  de valores medios remuestreados

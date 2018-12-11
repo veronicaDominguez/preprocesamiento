@@ -90,13 +90,12 @@ switch ACCION
         
         set(handles.PanelCO2Filtro,'Visible','off');
         ver_bot_proc1(handles,0,'off');
-    case 4  
-                
+    case 4          
         ver_bot_cut(handles,'on');
         ver_ven_gen(handles,1,MODO);
         
     case 5
-        set(handles.PanelCalcMMU,'Visible','on');        
+        set(handles.PanelCalcMMU,'Visible','on');
         set(handles.PanelCO2Filtro,'Visible','off');
     otherwise
         
@@ -266,12 +265,7 @@ function ver_bot_cut(handles,modo)
 % handles    estructura con punteros a datos de la GUI
 % modo       on = visualizar ; off = ocultar 
     set(handles.PanelCutSignal,'Visible',modo);
-    set(handles.PanelData,'Visible',modo);
-    %panel datos
-        set(handles.CB1,'Visible','on');
-        set(handles.CB2,'Visible','on');
-        set(handles.CB3,'Visible','on');
-        set(handles.CB4,'Visible','on'); 
+    set(handles.PanelData,'Visible','off');
         
     set(handles.AX35,'Visible',modo); 
     
@@ -295,6 +289,7 @@ function ver_bot_mm(handles,nven,modo)
 % handles    estructura con punteros a datos de la GUI
 % nven       numero de ventana para realizar accion
 % modo       on = visualizar ; off = ocultar 
+set(handles.PanelData,'Visible','off');
 switch nven
     case 1
         set(handles.PanelPSAMMU,'Visible',modo);

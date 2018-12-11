@@ -158,31 +158,33 @@ function [HCURVAS VCFG GCV]=GFInicializa(handles)
   GCV(1,21)=25;  % posiciones upstroke curva 1 - PCURVAS
   GCV(2,21)=35;
   GCV(3,21)=45;
-  GCV(4,21)=0;
+  GCV(4,21)=25;
   GCV(5,21)=0;
   GCV(6,21)=0;
   
   GCV(1,40)=1;  % posiciones  de valores medios PSA
   GCV(2,40)=2;
   GCV(3,40)=3;
+  GCV(4,40)=4;  %CO2
   
   GCV(1,41)=7;  % valores medios PSA
-  GCV(2,41)=8;  % valores medios
-  GCV(3,41)=9;  % valores medios
-  GCV(4,41)=10;  % valores medios
+  GCV(2,41)=8;  % valores medios VFSC I
+  GCV(3,41)=9;  % valores medios VFSCD
+  GCV(4,41)=10;  % valores medios CO2
   GCV(5,41)=11;  % valores medios
   GCV(6,41)=12;  % valores medios
   
   GCV(1,42)=13;  % posiciones  de valores medios remuestreados PSA
-  GCV(2,42)=14;  % posiciones  de valores medios remuestreados
-  GCV(3,42)=15;  % posiciones  de valores medios remuestreados
-  GCV(4,42)=16;  % posiciones  de valores medios remuestreados
+  GCV(2,42)=14;  % posiciones  de valores medios remuestreados VFSCI
+  GCV(3,42)=15;  % posiciones  de valores medios remuestreados VFSCD
+  GCV(4,42)=16;  % posiciones  de valores medios remuestreados CO2
   GCV(5,42)=17;  % posiciones  de valores medios remuestreados
   GCV(6,42)=18;  % posiciones  de valores medios remuestreados
   
   GCV(1,43)=19;  % valores medios remuestreados PSA
-  GCV(2,43)=20;  % valores medios remuestreados
-  GCV(3,43)=21;  % valores medios remuestreados
+  GCV(2,43)=20;  % valores medios remuestreados VFSCI
+  GCV(3,43)=21;  % valores medios remuestreados VFSCD
+  GCV(4,43)=22;  % valores medios remuestreados CO2
   
   GCV(1,44)=25;  % valores PCC
   GCV(1,45)=26;  % valores RAP
