@@ -290,6 +290,9 @@ function ver_bot_mm(handles,nven,modo)
 % nven       numero de ventana para realizar accion
 % modo       on = visualizar ; off = ocultar 
 set(handles.PanelData,'Visible','off');
+set(handles.AX34,'Visible','off');
+set(handles.AX34YMX,'Visible','off');
+set(handles.AX34YMN,'Visible','off');
 switch nven
     case 1
         set(handles.PanelPSAMMU,'Visible',modo);
