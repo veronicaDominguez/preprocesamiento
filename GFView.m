@@ -217,7 +217,7 @@ end
 end
 
 % --------------------------------------------------------------------
-% -- Oculta o visualiza botones en modo filtarr                     --
+% -- Oculta o visualiza botones en modo filtar                      --
 % --------------------------------------------------------------------
 function ver_bot_fil(handles,nven,modo)
 % handles    estructura con punteros a datos de la GUI
@@ -302,14 +302,14 @@ switch nven
         set(handles.TXADM31MA,'Visible',modo); % Upstrk - Caja nro latidos V1
         set(handles.TXTADM31MA,'Visible',modo); % Upstrk - Caja nro latidos V1
     case 2
-        set(handles.PanelVFSCDMMU,'Visible',modo);
+        set(handles.PanelVFSCIMMU,'Visible',modo);
         set(handles.PBADM32MA,'Visible',modo); % Upstrk - Bot marcar pto V2
         set(handles.PBADM32ME,'Visible',modo); % Upstrk - Bot elim pto V2
         set(handles.PBADM32MO,'Visible',modo); % Upstrk - Bot aceptar V2
         set(handles.TXADM32MA,'Visible',modo); % Upstrk - Caja nro latidos V2
         set(handles.TXTADM32MA,'Visible',modo); % Upstrk - Caja nro latidos V2
     case 3
-        set(handles.PanelVFSCIMMU,'Visible',modo);
+        set(handles.PanelVFSCDMMU,'Visible',modo);
         set(handles.PBADM33MA,'Visible',modo); % Upstrk - Bot marcar pto V3
         set(handles.PBADM33ME,'Visible',modo); % Upstrk - Bot elim pto V3
         set(handles.PBADM33MO,'Visible',modo); % Upstrk - Bot aceptar V3

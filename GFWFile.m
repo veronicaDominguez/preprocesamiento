@@ -112,7 +112,11 @@ if IDEBUG; disp('GFWFile...'); end;
                   waitbar(lbar);
                   if HCURVAS(GCV(1,1)); xpsi=PCURVAS(nc1,k);  else xpsi=0.0;  end;
                   if HCURVAS(GCV(2,1)); xvfci=PCURVAS(nc2,k); else xvfci=0.0; end;
+                  %if HCURVAS(GCV(2,1)); xvfci=0.0; else xvfci=0.0; end;
                   if HCURVAS(GCV(3,1)); xvfcd=PCURVAS(nc3,k); else xvfcd=0.0; end;
+                  %if HCURVAS(GCV(3,1)); xvfcd=0.0; else xvfcd=0.0; end;
+                  %cuando no esta la curva derecha o se quiere anular por
+                  %el ruido o la izquierda (arriba)
                   if HCURVAS(GCV(4,1)); co2=PCURVAS(nc4,k);   else co2=0.0;   end;
                   if HCURVAS(GCV(5,1)); ecg=PCURVAS(nc5,k);   else ecg=0.0;   end;
                   if HCURVAS(GCV(6,1)); adic=PCURVAS(nc6,k);  else adic=0.0;  end;
